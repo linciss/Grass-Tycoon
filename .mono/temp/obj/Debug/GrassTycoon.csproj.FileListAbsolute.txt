@@ -1,0 +1,9 @@
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\bin\Debug\GrassTycoon.dll
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\bin\Debug\GrassTycoon.pdb
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.csproj.AssemblyReference.cache
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.AssemblyInfoInputs.cache
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.AssemblyInfo.cs
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.csproj.CoreCompileInputs.cache
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.dll
+C:\Users\ss\Desktop\GrassTycoon\.mono\temp\obj\Debug\GrassTycoon.pdb
