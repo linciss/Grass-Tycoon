@@ -10,24 +10,25 @@ public class General : Node
     Area2D p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     Area2D[] all = new Area2D[10];
     float time = 1f;
-    int index = 1;
+    int index = 0;
+    [Export] NodePath[] path;
+    bool cropped = false;
 
 
 
     public override void _Ready()
     {
-        p1 = GetNode<Area2D>("/root/Node2D/Grass/p1");
-        p2 = GetNode<Area2D>("/root/Node2D/Grass/p2");
-        p3 = GetNode<Area2D>("/root/Node2D/Grass/p3");
-        p4 = GetNode<Area2D>("/root/Node2D/Grass/p4");
-        p5 = GetNode<Area2D>("/root/Node2D/Grass/p5");
-        p6 = GetNode<Area2D>("/root/Node2D/Grass/p6");
-        p7 = GetNode<Area2D>("/root/Node2D/Grass/p7");
-        p8 = GetNode<Area2D>("/root/Node2D/Grass/p8");
-        p9 = GetNode<Area2D>("/root/Node2D/Grass/p9");
-        p10 = GetNode<Area2D>("/root/Node2D/Grass/p10");
+        p1 = GetNode<Area2D>(path[0]);
+        p2 = GetNode<Area2D>(path[1]);
+        p3 = GetNode<Area2D>(path[2]);
+        p4 = GetNode<Area2D>(path[3]);
+        p5 = GetNode<Area2D>(path[4]);
+        p6 = GetNode<Area2D>(path[5]);
+        p7 = GetNode<Area2D>(path[6]);
+        p8 = GetNode<Area2D>(path[7]);
+        p9 = GetNode<Area2D>(path[8]);
+        p10 = GetNode<Area2D>(path[9]);
 
-        all[0] = p1;
         all[1] = p2;
         all[2] = p3;
         all[3] = p4;
@@ -42,11 +43,6 @@ public class General : Node
     public void _on_p1_mouse_entered()
     {
         GD.Print("0");
-        for (int i = 1; i < all.Length; i++)
-        {
-            all[i].Hide();
-        }
-        time = 1; index = 1;
     }
     public void _on_p2_mouse_entered()
 
@@ -56,7 +52,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 1;
+        time = 1; index = 1; cropped = true;
     }
 
     public void _on_p3_mouse_entered()
@@ -66,7 +62,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 2;
+        time = 1; index = 2; cropped = true;
     }
 
     public void _on_p4_mouse_entered()
@@ -76,7 +72,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 3;
+        time = 1; index = 3; cropped = true;
     }
 
     public void _on_p5_mouse_entered()
@@ -86,7 +82,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 4;
+        time = 1; index = 4; cropped = true;
     }
 
     public void _on_p6_mouse_entered()
@@ -95,8 +91,8 @@ public class General : Node
         for (int i = 5; i < all.Length; i++)
         {
             all[i].Hide();
-        }
-        time = 1; index = 5;
+        } 
+        time = 1; index = 5; cropped = true;
     }
 
     public void _on_p7_mouse_entered()
@@ -106,7 +102,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 6;
+        time = 1; index = 6; cropped = true;
     }
 
     public void _on_p8_mouse_entered()
@@ -116,7 +112,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 7;
+        time = 1; index = 7; cropped = true;
     }
 
     public void _on_p9_mouse_entered()
@@ -126,7 +122,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 8;
+        time = 1; index = 8; cropped = true;
     }
 
     public void _on_p10_mouse_entered()
@@ -136,7 +132,7 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 9;
+        time = 1; index = 9; cropped = true;
     }
 
 
@@ -145,6 +141,8 @@ public class General : Node
 
         time -= delta;
         if (time > 0) return;
+        if (!cropped) return;
+
         for (; index < all.Length;)
         {
             all[index].Show(); index++; time = 1; return;
