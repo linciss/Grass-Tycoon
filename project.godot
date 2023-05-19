@@ -14,6 +14,10 @@ config/name="GrassTycoon"
 run/main_scene="res://MainGame/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Money="*res://MainGame/Money system/Money.cs"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

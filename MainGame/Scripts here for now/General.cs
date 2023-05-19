@@ -9,11 +9,12 @@ public class General : Node
 
     Area2D p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     Area2D[] all = new Area2D[10];
-    float time = 1f;
+    public float time = 1f;
     int index = 0;
     [Export] NodePath[] path;
     bool cropped = false;
-
+    Money money;
+    public float grassPrice = 1, grassYield = 1;
 
 
     public override void _Ready()
@@ -38,107 +39,104 @@ public class General : Node
         all[7] = p8;
         all[8] = p9;
         all[9] = p10;
+        money = (Money)GetNode("/root/Money");
     }
 
     public void _on_p1_mouse_entered()
     {
-        GD.Print("0");
+      
     }
     public void _on_p2_mouse_entered()
 
     {
-        GD.Print("1");
         for (int i = 1; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 1; cropped = true;
+        time = 1; index = 1; cropped = true; cutGrass(9);
+
     }
 
     public void _on_p3_mouse_entered()
     {
-        GD.Print("2");
         for (int i = 2; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 2; cropped = true;
+        time = 1; index = 2; cropped = true; cutGrass(8);
     }
 
     public void _on_p4_mouse_entered()
     {
-        GD.Print("3");
         for (int i = 3; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 3; cropped = true;
+        time = 1; index = 3; cropped = true; cutGrass(7);
     }
 
     public void _on_p5_mouse_entered()
     {
-        GD.Print("4");
         for (int i = 4; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 4; cropped = true;
+        time = 1; index = 4; cropped = true; cutGrass(6);
     }
 
     public void _on_p6_mouse_entered()
     {
-        GD.Print("5");
+        
         for (int i = 5; i < all.Length; i++)
         {
             all[i].Hide();
         } 
-        time = 1; index = 5; cropped = true;
+        time = 1; index = 5; cropped = true; cutGrass(5);
     }
 
     public void _on_p7_mouse_entered()
     {
-        GD.Print("6");
+      
         for (int i = 6; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 6; cropped = true;
+        time = 1; index = 6; cropped = true; cutGrass(4);
     }
 
     public void _on_p8_mouse_entered()
     {
-        GD.Print("7");
+      
         for (int i = 7; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 7; cropped = true;
+        time = 1; index = 7; cropped = true; cutGrass(3);
     }
 
     public void _on_p9_mouse_entered()
     {
-        GD.Print("8");
+       
         for (int i = 8; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 8; cropped = true;
+        time = 1; index = 8; cropped = true; cutGrass(2);
     }
 
     public void _on_p10_mouse_entered()
     {
-        GD.Print("9");
+        
         for (int i = 9; i < all.Length; i++)
         {
             all[i].Hide();
         }
-        time = 1; index = 9; cropped = true;
+        time = 1; index = 9; cropped = true; cutGrass(1);
     }
 
 
     public override void _PhysicsProcess(float delta)
     {
-
         time -= delta;
         if (time > 0) return;
         if (!cropped) return;
@@ -148,6 +146,14 @@ public class General : Node
             all[index].Show(); index++; time = 1; return;
         }
 
+    }
+
+    public void cutGrass(int index)
+    {
+        money.money += grassPrice * grassYield * index;
+        GD.Print("cut grass");
+        GD.Print(money.money);
+        
     }
 
 

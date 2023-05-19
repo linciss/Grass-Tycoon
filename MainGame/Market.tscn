@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainGame/Scripts here for now/ButtonsForMarket.cs" type="Script" id=1]
+
+[node name="Market" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 319, 327 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 23.0
+margin_right = 335.0
+margin_bottom = 560.0
+color = Color( 0.192157, 0.101961, 0.101961, 1 )
+
+[node name="Price" type="ColorRect" parent="ColorRect"]
+margin_left = 20.0
+margin_top = 26.0
+margin_right = 304.0
+margin_bottom = 131.0
+color = Color( 0.290196, 0.207843, 0.207843, 1 )
+
+[node name="Value" type="Button" parent="ColorRect/Price"]
+margin_left = 188.0
+margin_top = 79.0
+margin_right = 278.0
+margin_bottom = 99.0
+text = "Buy 10$"
+
+[node name="GrowthRate" type="ColorRect" parent="ColorRect"]
+margin_left = 18.0
+margin_top = 155.0
+margin_right = 302.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 236, 70 )
+color = Color( 0.290196, 0.207843, 0.207843, 1 )
+
+[node name="GrowthRate" type="Button" parent="ColorRect/GrowthRate"]
+margin_left = 192.0
+margin_top = 79.0
+margin_right = 278.0
+margin_bottom = 99.0
+text = "Buy 15$"
+
+[node name="Yield" type="ColorRect" parent="ColorRect"]
+margin_left = 19.0
+margin_top = 283.0
+margin_right = 303.0
+margin_bottom = 388.0
+rect_pivot_offset = Vector2( 203, -23 )
+color = Color( 0.290196, 0.207843, 0.207843, 1 )
+
+[node name="Yield" type="Button" parent="ColorRect/Yield"]
+margin_left = 190.0
+margin_top = 79.0
+margin_right = 278.0
+margin_bottom = 99.0
+text = "Buy 100$"
+
+[node name="Grass count" type="ColorRect" parent="ColorRect"]
+margin_left = 19.0
+margin_top = 408.0
+margin_right = 303.0
+margin_bottom = 513.0
+color = Color( 0.290196, 0.207843, 0.207843, 1 )
+
+[node name="Count" type="Button" parent="ColorRect/Grass count"]
+margin_left = 192.0
+margin_top = 79.0
+margin_right = 278.0
+margin_bottom = 99.0
+text = "Buy1000$"
+
+[connection signal="pressed" from="ColorRect/Price/Value" to="." method="_on_Value_pressed"]
