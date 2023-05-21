@@ -10,7 +10,7 @@ public class ButtonsForMarket : Control
 
     public override void _Ready()
     {
-        general = GetNode<General>("/root/Node2D/Grass2");
+        general = GetNode<General>("/root/Node2D/Grass");
         money = GetNode<Money>("/root/Money");
 
     }

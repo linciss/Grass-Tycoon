@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Grass Images/8.png" type="Texture" id=1]
-[ext_resource path="res://Grass Images/7.png" type="Texture" id=2]
-[ext_resource path="res://Grass Images/10.png" type="Texture" id=3]
-[ext_resource path="res://Grass Images/9.png" type="Texture" id=4]
-[ext_resource path="res://Grass Images/6.png" type="Texture" id=5]
-[ext_resource path="res://Grass Images/1.png" type="Texture" id=6]
-[ext_resource path="res://Grass Images/4.png" type="Texture" id=7]
-[ext_resource path="res://Grass Images/5.png" type="Texture" id=8]
-[ext_resource path="res://Grass Images/2.png" type="Texture" id=9]
-[ext_resource path="res://Grass Images/3.png" type="Texture" id=10]
-[ext_resource path="res://MainGame/Scripts here for now/General.cs" type="Script" id=11]
+[ext_resource path="res://MainGame/Scripts here for now/General.cs" type="Script" id=1]
+[ext_resource path="res://Grass Images/8.png" type="Texture" id=2]
+[ext_resource path="res://Grass Images/7.png" type="Texture" id=3]
+[ext_resource path="res://Grass Images/10.png" type="Texture" id=4]
+[ext_resource path="res://Grass Images/9.png" type="Texture" id=5]
+[ext_resource path="res://Grass Images/6.png" type="Texture" id=6]
+[ext_resource path="res://Grass Images/1.png" type="Texture" id=7]
+[ext_resource path="res://Grass Images/4.png" type="Texture" id=8]
+[ext_resource path="res://Grass Images/5.png" type="Texture" id=9]
+[ext_resource path="res://Grass Images/2.png" type="Texture" id=10]
+[ext_resource path="res://Grass Images/3.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 16 )
@@ -19,7 +19,7 @@ extents = Vector2( 21, 16 )
 extents = Vector2( 21, 16 )
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 11 )
+script = ExtResource( 1 )
 path = [ NodePath("p1"), NodePath("p2"), NodePath("p3"), NodePath("p4"), NodePath("p5"), NodePath("p6"), NodePath("p7"), NodePath("p8"), NodePath("p9"), NodePath("p10") ]
 
 [node name="p10" type="Area2D" parent="."]
@@ -32,7 +32,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="p10"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="p9" type="Area2D" parent="."]
 position = Vector2( 0, -95 )
@@ -44,7 +44,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p9"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="p8" type="Area2D" parent="."]
 position = Vector2( 0, -64 )
@@ -56,7 +56,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p8"]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="p7" type="Area2D" parent="."]
 position = Vector2( 0, -32 )
@@ -68,7 +68,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p7"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="p6" type="Area2D" parent="."]
 __meta__ = {
@@ -79,7 +79,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p6"]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="p5" type="Area2D" parent="."]
 position = Vector2( 0, 32 )
@@ -91,7 +91,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p5"]
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="p4" type="Area2D" parent="."]
 position = Vector2( 0, 64 )
@@ -103,7 +103,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p4"]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="p3" type="Area2D" parent="."]
 position = Vector2( 0, 96 )
@@ -115,7 +115,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p3"]
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="p2" type="Area2D" parent="."]
 position = Vector2( 0, 128 )
@@ -127,7 +127,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p2"]
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="p1" type="Area2D" parent="."]
 position = Vector2( 0, 160 )
@@ -139,7 +139,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="p1"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [connection signal="mouse_entered" from="p10" to="." method="_on_p10_mouse_entered"]
 [connection signal="mouse_entered" from="p9" to="." method="_on_p9_mouse_entered"]

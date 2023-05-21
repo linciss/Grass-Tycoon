@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Test : Label
+public class MoneyLabel : Label
 {
     public override void _PhysicsProcess(float delta)
     {
