@@ -5,18 +5,27 @@ public class ButtonsForMarket : Control
 {
     General general;
     Money money;
-    float grassValuePrice = 10, grassGrowthPrice = 15, grassYieldPrice = 100, grassCountPrice = 1000;
+    [Export] NodePath[] buttPath;
+    [Export] NodePath[] labelPath;
+    public int valueLevel = 0, growthLevel = 0, yieldLevel = 0, countLevel = 0;
+    float grassValuePrice = 10, grassGrowthPrice = 20, grassYieldPrice = 50, grassCountPrice = 5000;
     Button value, growth, yield, count;
+    Label valueL, growthL, yieldL, countL; 
+    
     private PackedScene grass;
 
     public override void _Ready()
     {
         general = GetNode<General>("/root/Node2D/Grass");
         money = GetNode<Money>("/root/Money");
-        value = GetNode<Button>("/root/Node2D/Market/ColorRect/Price/Value");
-        growth = GetNode<Button>("/root/Node2D/Market/ColorRect/GrowthRate/GrowthRate");
-        yield = GetNode<Button>("/root/Node2D/Market/ColorRect/Yield/Yield");
-        count = GetNode<Button>("/root/Node2D/Market/ColorRect/Grass count/Count");
+        value = GetNode < Button>(buttPath[0]);
+        growth = GetNode<Button>(buttPath[1]);
+        yield = GetNode<Button>(buttPath[2]);
+        count = GetNode<Button>(buttPath[3]);
+        valueL = GetNode<Label>(labelPath[0]);
+        growthL = GetNode<Label>(labelPath[1]);
+        yieldL = GetNode<Label>(labelPath[2]);
+        countL = GetNode<Label>(labelPath[3]);
         grass = (PackedScene)ResourceLoader.Load("res://MainGame/Grass/Grass.tscn");
 
     }
@@ -29,7 +38,7 @@ public class ButtonsForMarket : Control
             return;
 
         }
-            GD.Print("Value");
+            valueLevel++;
             money.money -= grassValuePrice;
             money.grassPrice += 0.5f;
             grassValuePrice *= 1.5f;
@@ -46,10 +55,10 @@ public class ButtonsForMarket : Control
             return;
 
         }
-
+        growthLevel++;
         money.money -= grassGrowthPrice;
         money.growthTime -= 0.01f;
-        grassGrowthPrice *= 1.5f;
+        grassGrowthPrice *= 2f;
         growth.Text = "Buy " + System.Math.Round(grassGrowthPrice, 2) + " $";
         
     }
@@ -63,10 +72,10 @@ public class ButtonsForMarket : Control
             return;
 
         }
-
+        yieldLevel++;   
         money.money -= grassYieldPrice;
         money.grassYield++;
-        grassYieldPrice *= 1.5f;
+        grassYieldPrice *= 3.5f;
         yield.Text = "Buy " + System.Math.Round(grassYieldPrice, 2) + " $";
         
     }
@@ -84,17 +93,24 @@ public class ButtonsForMarket : Control
         if (money.boughtGrass >= 10)
             return;
 
+        countLevel++;
         money.boughtGrass++;
         money.money -= grassCountPrice;
-        grassCountPrice *= 2f;
+        grassCountPrice *= 7f;
         Node2D grass = (Node2D)this.grass.Instance();
         grass.Position = new Vector2((money.boughtGrass * 50) + grass.Position.x, 304);
         AddChild(grass);
-
+        count.Text = "Buy " + System.Math.Round(grassCountPrice, 2) + " $";
     }
 
     public override void _PhysicsProcess(float delta)
     {
-        
+     
+        valueL.Text = "Level: " + valueLevel;
+        growthL.Text = "Level: " + growthLevel;
+        yieldL.Text = "Level: " + yieldLevel;
+        countL.Text = "Level: " + countLevel;
+
+
     }
 }

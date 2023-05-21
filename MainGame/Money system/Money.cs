@@ -3,7 +3,7 @@ using System;
 
 public class Money : Node
 {
-    public float grassPrice = 1f, grassYield = 1f, money = 600000000, growthTime = 1;
+    public float grassPrice = 1f, grassYield = 1f, money = 0, growthTime = 1;
     public int boughtGrass = 0;
 
 

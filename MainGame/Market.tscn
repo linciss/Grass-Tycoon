@@ -7,6 +7,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 319, 327 )
 script = ExtResource( 1 )
+buttPath = [ NodePath("ColorRect/Price/Value"), NodePath("ColorRect/GrowthRate/GrowthRate"), NodePath("ColorRect/Yield/Yield"), NodePath("ColorRect/Grass count/Count") ]
+labelPath = [ NodePath("ColorRect/Price/Level"), NodePath("ColorRect/GrowthRate/Level"), NodePath("ColorRect/Yield/Level"), NodePath("ColorRect/Grass count/Level") ]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 12.0
@@ -29,6 +31,21 @@ margin_right = 278.0
 margin_bottom = 99.0
 text = "Buy 10$"
 
+[node name="Info" type="Label" parent="ColorRect/Price"]
+margin_left = 74.0
+margin_top = 4.0
+margin_right = 278.0
+margin_bottom = 43.0
+text = "Increses the value of a grass 
+balde"
+
+[node name="Level" type="Label" parent="ColorRect/Price"]
+margin_left = 75.0
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 48.0
+text = "Level: "
+
 [node name="GrowthRate" type="ColorRect" parent="ColorRect"]
 margin_left = 18.0
 margin_top = 155.0
@@ -44,6 +61,21 @@ margin_right = 278.0
 margin_bottom = 99.0
 text = "Buy 15$"
 
+[node name="Info" type="Label" parent="ColorRect/GrowthRate"]
+margin_left = 74.0
+margin_top = 4.0
+margin_right = 278.0
+margin_bottom = 43.0
+text = "Increses the growth rate of a 
+grass balde"
+
+[node name="Level" type="Label" parent="ColorRect/GrowthRate"]
+margin_left = 75.0
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 48.0
+text = "Level: "
+
 [node name="Yield" type="ColorRect" parent="ColorRect"]
 margin_left = 19.0
 margin_top = 283.0
@@ -57,13 +89,29 @@ margin_left = 190.0
 margin_top = 79.0
 margin_right = 278.0
 margin_bottom = 99.0
-text = "Buy 100$"
+text = "Buy 50$"
+
+[node name="Info" type="Label" parent="ColorRect/Yield"]
+margin_left = 74.0
+margin_top = 4.0
+margin_right = 278.0
+margin_bottom = 43.0
+text = "Increses the yield of a grass 
+balde"
+
+[node name="Level" type="Label" parent="ColorRect/Yield"]
+margin_left = 75.0
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 48.0
+text = "Level: "
 
 [node name="Grass count" type="ColorRect" parent="ColorRect"]
 margin_left = 19.0
 margin_top = 408.0
 margin_right = 303.0
 margin_bottom = 513.0
+rect_pivot_offset = Vector2( -352, -46 )
 color = Color( 0.290196, 0.207843, 0.207843, 1 )
 
 [node name="Count" type="Button" parent="ColorRect/Grass count"]
@@ -72,6 +120,21 @@ margin_top = 79.0
 margin_right = 278.0
 margin_bottom = 99.0
 text = "Buy1000$"
+
+[node name="Info" type="Label" parent="ColorRect/Grass count"]
+margin_left = 74.0
+margin_top = 4.0
+margin_right = 278.0
+margin_bottom = 43.0
+text = "Increses the count  of grass 
+baldes"
+
+[node name="Level" type="Label" parent="ColorRect/Grass count"]
+margin_left = 75.0
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 48.0
+text = "Level: "
 
 [connection signal="pressed" from="ColorRect/Price/Value" to="." method="_on_Value_pressed"]
 [connection signal="pressed" from="ColorRect/GrowthRate/GrowthRate" to="." method="_on_Growth_pressed"]
