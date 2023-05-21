@@ -10,11 +10,13 @@ public class General : Node
     Area2D p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     Area2D[] all = new Area2D[10];
     public float time = 1f;
-    int index = 0;
+    int index = 0, grassPieces = 9, bladesCut = 0;
     [Export] NodePath[] path;
     bool cropped = false;
     Money money;
     public float grassPrice = 1, grassYield = 1;
+
+    
 
 
     public override void _Ready()
@@ -51,9 +53,13 @@ public class General : Node
     {
         for (int i = 1; i < all.Length; i++)
         {
-            all[i].Hide();
+            all[i].Hide();   
         }
-        time = 1; index = 1; cropped = true; cutGrass(9);
+        time = 1; index = 1; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 1;
+        cutGrass();
 
     }
 
@@ -62,8 +68,13 @@ public class General : Node
         for (int i = 2; i < all.Length; i++)
         {
             all[i].Hide();
+            
         }
-        time = 1; index = 2; cropped = true; cutGrass(8);
+        time = 1; index = 2; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 2;
+        cutGrass();
     }
 
     public void _on_p4_mouse_entered()
@@ -72,7 +83,12 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 3; cropped = true; cutGrass(7);
+        time = 1; index = 3; cropped = true; 
+        
+        
+        bladesCut = grassPieces - index;
+        grassPieces = 3;
+        cutGrass();
     }
 
     public void _on_p5_mouse_entered()
@@ -81,7 +97,11 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 4; cropped = true; cutGrass(6);
+        time = 1; index = 4; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 4;
+        cutGrass();
     }
 
     public void _on_p6_mouse_entered()
@@ -91,7 +111,11 @@ public class General : Node
         {
             all[i].Hide();
         } 
-        time = 1; index = 5; cropped = true; cutGrass(5);
+        time = 1; index = 5; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 5;
+        cutGrass();
     }
 
     public void _on_p7_mouse_entered()
@@ -101,7 +125,11 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 6; cropped = true; cutGrass(4);
+        time = 1; index = 6; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 6;
+        cutGrass();
     }
 
     public void _on_p8_mouse_entered()
@@ -111,7 +139,11 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 7; cropped = true; cutGrass(3);
+        time = 1; index = 7; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 7;
+        cutGrass();
     }
 
     public void _on_p9_mouse_entered()
@@ -121,7 +153,11 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 8; cropped = true; cutGrass(2);
+        time = 1; index = 8; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 8;
+        cutGrass();
     }
 
     public void _on_p10_mouse_entered()
@@ -131,10 +167,14 @@ public class General : Node
         {
             all[i].Hide();
         }
-        time = 1; index = 9; cropped = true; cutGrass(1);
+        time = 1; index = 9; cropped = true;
+
+        bladesCut = grassPieces - index;
+        grassPieces = 9;
+        cutGrass();
     }
 
-
+    int count = 0;
     public override void _PhysicsProcess(float delta)
     {
         time -= delta;
@@ -143,17 +183,19 @@ public class General : Node
 
         for (; index < all.Length;)
         {
-            all[index].Show(); index++; time = 1; return;
+            all[index].Show(); grassPieces++; index++; time = 1; return;
         }
 
     }
 
-    public void cutGrass(int index)
+    public void cutGrass()
     {
-        money.money += grassPrice * grassYield * index;
+       
+       
+        money.money += grassPrice * grassYield * bladesCut;
         GD.Print("cut grass");
         GD.Print(money.money);
-        
+        count = 0;
     }
 
 

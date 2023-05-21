@@ -15,9 +15,14 @@ public class ButtonsForMarket : Control
 
     public void _on_Value_pressed()
     {
-        if (money.money < grassValuePrice) return;
-        
-            //money.money -= grassValuePrice;
+        if (money.money < grassValuePrice)
+        {
+            GD.Print("Not enough money");
+            return;
+
+        }
+            GD.Print("Value");
+            money.money -= grassValuePrice;
             general.grassPrice += 0.5f;
             grassValuePrice *= 1.5f;
 
