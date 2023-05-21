@@ -3,14 +3,16 @@ using System;
 
 public class ButtonsForMarket : Control
 {
-    General general = new General();
-    Money money = new Money();
+    General general;
+    Money money;
     float grassValuePrice = 10, grassGrowthPrice = 15, grassYieldPrice = 100, grassCountPrice = 1000;
 
 
     public override void _Ready()
     {
-        
+        general = GetNode<General>("/root/Node2D/Grass2");
+        money = GetNode<Money>("/root/Money");
+
     }
 
     public void _on_Value_pressed()
@@ -23,7 +25,7 @@ public class ButtonsForMarket : Control
         }
             GD.Print("Value");
             money.money -= grassValuePrice;
-            general.grassPrice += 0.5f;
+            money.grassPrice += 0.5f;
             grassValuePrice *= 1.5f;
 
     }

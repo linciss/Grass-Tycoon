@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 
-public class General : Node
+public class General : Area2D
 {
 
 
@@ -14,7 +14,7 @@ public class General : Node
     [Export] NodePath[] path;
     bool cropped = false;
     Money money;
-    public float grassPrice = 1, grassYield = 1;
+    
 
     
 
@@ -59,7 +59,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 1;
-        cutGrass();
+        money.cutGrass(bladesCut);
 
     }
 
@@ -74,7 +74,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 2;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p4_mouse_entered()
@@ -88,7 +88,7 @@ public class General : Node
         
         bladesCut = grassPieces - index;
         grassPieces = 3;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p5_mouse_entered()
@@ -101,7 +101,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 4;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p6_mouse_entered()
@@ -115,7 +115,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 5;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p7_mouse_entered()
@@ -129,7 +129,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 6;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p8_mouse_entered()
@@ -143,7 +143,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 7;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p9_mouse_entered()
@@ -157,7 +157,7 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 8;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
     public void _on_p10_mouse_entered()
@@ -171,10 +171,9 @@ public class General : Node
 
         bladesCut = grassPieces - index;
         grassPieces = 9;
-        cutGrass();
+        money.cutGrass(bladesCut);
     }
 
-    int count = 0;
     public override void _PhysicsProcess(float delta)
     {
         time -= delta;
@@ -188,15 +187,7 @@ public class General : Node
 
     }
 
-    public void cutGrass()
-    {
-       
-       
-        money.money += grassPrice * grassYield * bladesCut;
-        GD.Print("cut grass");
-        GD.Print(money.money);
-        count = 0;
-    }
+  
 
 
 
