@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Button : Godot.Button
+public class Buttons : Godot.Button
 {
 
     PackedScene grass;

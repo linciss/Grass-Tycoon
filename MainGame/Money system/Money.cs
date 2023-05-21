@@ -3,8 +3,8 @@ using System;
 
 public class Money : Node
 {
-    public double money = 0;
-    public float grassPrice = 1f, grassYield = 1f;
+    public float grassPrice = 1f, grassYield = 1f, money = 600000000, growthTime = 1;
+    public int boughtGrass = 0;
 
 
     public void cutGrass(int bladesCut)

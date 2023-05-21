@@ -29,4 +29,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 301 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

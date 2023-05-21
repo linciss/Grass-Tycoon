@@ -9,7 +9,7 @@ public class General : Area2D
 
     Area2D p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     Area2D[] all = new Area2D[10];
-    public float time = 1f;
+    public float growthTime = 1f;
     int index = 0, grassPieces = 9, bladesCut = 0;
     [Export] NodePath[] path;
     bool cropped = false;
@@ -55,7 +55,7 @@ public class General : Area2D
         {
             all[i].Hide();   
         }
-        time = 1; index = 1; cropped = true;
+        growthTime = money.growthTime; index = 1; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 1;
@@ -70,7 +70,7 @@ public class General : Area2D
             all[i].Hide();
             
         }
-        time = 1; index = 2; cropped = true;
+        growthTime = money.growthTime; index = 2; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 2;
@@ -83,7 +83,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 3; cropped = true; 
+        growthTime = money.growthTime; index = 3; cropped = true; 
         
         
         bladesCut = grassPieces - index;
@@ -97,7 +97,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 4; cropped = true;
+        growthTime = money.growthTime; index = 4; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 4;
@@ -111,7 +111,7 @@ public class General : Area2D
         {
             all[i].Hide();
         } 
-        time = 1; index = 5; cropped = true;
+        growthTime = money.growthTime; index = 5; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 5;
@@ -125,7 +125,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 6; cropped = true;
+        growthTime = money.growthTime; index = 6; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 6;
@@ -139,7 +139,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 7; cropped = true;
+        growthTime = money.growthTime; index = 7; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 7;
@@ -153,7 +153,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 8; cropped = true;
+        growthTime = money.growthTime; index = 8; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 8;
@@ -167,7 +167,7 @@ public class General : Area2D
         {
             all[i].Hide();
         }
-        time = 1; index = 9; cropped = true;
+        growthTime = money.growthTime; index = 9; cropped = true;
 
         bladesCut = grassPieces - index;
         grassPieces = 9;
@@ -176,13 +176,13 @@ public class General : Area2D
 
     public override void _PhysicsProcess(float delta)
     {
-        time -= delta;
-        if (time > 0) return;
+        growthTime -= delta;
+        if (growthTime > 0) return;
         if (!cropped) return;
 
         for (; index < all.Length;)
         {
-            all[index].Show(); grassPieces++; index++; time = 1; return;
+            all[index].Show(); grassPieces++; index++; growthTime = money.growthTime; return;
         }
 
     }
