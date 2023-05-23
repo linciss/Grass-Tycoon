@@ -41,7 +41,7 @@ public class ButtonsForMarket : Control
             valueLevel++;
             money.money -= grassValuePrice;
             money.grassPrice += 0.5f;
-            grassValuePrice *= 1.5f;
+            grassValuePrice += 0.5f;
             value.Text = "Buy " + System.Math.Round(grassValuePrice, 2) + " $";
     }
 
